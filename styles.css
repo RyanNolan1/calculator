@@ -22,6 +22,8 @@ body {
   align-items: center;
   flex-direction: column;
   gap: 2rem;
+  border-style: solid;
+    border-color: black;
 }
 
 #calculator-screen {
@@ -30,6 +32,8 @@ body {
   height: 8rem;
   border-radius: 10px;
   margin-top: 2rem;
+    border-style: solid;
+    border-color: black;
 }
 
 #calculator-buttons {
@@ -56,6 +60,10 @@ body {
   font-size: 3rem;
 }
 
+.number-buttons:hover {
+    background-color: darkgray;
+}
+
 #buttons-operators {
     width: 5rem;
     display: grid;
@@ -74,10 +82,19 @@ body {
     font-size: 3rem;
 }
 
+.operator-buttons:hover {
+    background-color: darkgray;
+}
+
 #equals-button {
     background-color: orange;
 }
 
+#equals-button:hover {
+    background-color: rgb(173, 115, 8);
+}
+
 button {
-    filter: drop-shadow(3px 3px 4px #0f0f10);
+    filter: drop-shadow(2px 2px 1px #0f0f10);
+    cursor: pointer;
 }
