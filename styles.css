@@ -21,7 +21,7 @@ body {
 #calculator-container {
   background-color: rgb(107, 104, 104);
   width: 24rem;
-  height: 32rem;
+  height: 34rem;
   border-radius: 25px;
   display: flex;
   align-items: center;
@@ -54,9 +54,10 @@ body {
 
 #calculator-buttons {
   width: 20rem;
-  height: 20rem;
+  height: 24rem;
   display: flex;
   flex-direction: row;
+  margin-bottom:2rem;
 }
 
 #buttons-numbers {
@@ -87,7 +88,6 @@ body {
   column-gap: 5px;
   row-gap: 5px;
   padding: 5px;
-  padding-left: 0;
 }
 
 .operator-buttons {
@@ -107,10 +107,22 @@ body {
 }
 
 #equals-button:hover {
-  background-color: rgb(173, 115, 8);
+  background-color: rgb(255, 225, 0);
 }
 
 button {
   filter: drop-shadow(2px 2px 1px #0f0f10);
   cursor: pointer;
+}
+
+#ac-button {
+    background-color: red;
+    font-size: 2rem;
+    color: white;
+}
+
+#ac-button:hover {
+    background-color: rgb(255, 3, 95);
+    font-size: 2rem;
+    color: white;
 }
