@@ -29,3 +29,13 @@ function multiply(a, b) {
 function divide(a, b) {
   return a / b;
 }
+
+const buttons = document.getElementsByClassName("number-buttons");
+
+for (let i = 0; i < buttons.length; i++) {
+  const button = buttons[i];
+  button.addEventListener("click", function() {
+    const buttonNumber = Number(button.textContent);
+    console.log(buttonNumber)
+  })
+}
