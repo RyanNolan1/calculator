@@ -1,3 +1,18 @@
+const buttons = document.getElementsByClassName("number-buttons");
+const calculatorScreen = document.getElementById("calculator-screen");
+
+let displayValue = 0;
+
+for (let i = 0; i < buttons.length; i++) {
+  displayValue ='';
+  const button = buttons[i];
+  button.addEventListener("click", function () {
+    const buttonNumber = button.textContent;
+    displayValue = displayValue + buttonNumber;
+    calculatorScreen.innerText = displayValue;
+  });
+}
+
 let firstNumber;
 let operator;
 let secondNumber;
@@ -28,15 +43,4 @@ function multiply(a, b) {
 
 function divide(a, b) {
   return a / b;
-}
-
-const buttons = document.getElementsByClassName("number-buttons");
-const calculatorScreen = document.getElementById("calculator-screen")
-
-for (let i = 0; i < buttons.length; i++) {
-  const button = buttons[i];
-  button.addEventListener("click", function() {
-    const buttonNumber = Number(button.textContent);
-    calculatorScreen.innerText = buttonNumber;
-  })
 }
