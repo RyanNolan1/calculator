@@ -1,21 +1,30 @@
-const buttons = document.getElementsByClassName("number-buttons");
+const numberButtons = document.getElementsByClassName("number-buttons");
 const calculatorScreen = document.getElementById("calculator-screen");
+const operatorButtons = document.getElementsByClassName("operator-buttons");
 
 let displayValue = 0;
-
-for (let i = 0; i < buttons.length; i++) {
-  displayValue ='';
-  const button = buttons[i];
-  button.addEventListener("click", function () {
-    const buttonNumber = button.textContent;
-    displayValue = displayValue + buttonNumber;
-    calculatorScreen.innerText = displayValue;
-  });
-}
-
 let firstNumber;
 let operator;
 let secondNumber;
+
+for (let i = 0; i < operatorButtons.length; i++) {
+  const operatorButton = operatorButtons[i];
+  operatorButton.addEventListener("click", function () {
+    const buttonOperator = operatorButton.textContent;
+    console.log(buttonOperator);
+  });
+}
+
+for (let i = 0; i < numberButtons.length; i++) {
+  displayValue = "";
+  const numberButton = numberButtons[i];
+  numberButton.addEventListener("click", function () {
+    const buttonNumber = numberButton.textContent;
+    displayValue = displayValue + buttonNumber;
+    calculatorScreen.innerText = displayValue;
+    return displayValue;
+  });
+}
 
 function operate(operator, firstNumber, secondNumber) {
   if (operator === "+") {
