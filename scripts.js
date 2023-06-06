@@ -1,17 +1,26 @@
 const numberButtons = document.getElementsByClassName("number-buttons");
 const calculatorScreen = document.getElementById("calculator-screen");
 const operatorButtons = document.getElementsByClassName("operator-buttons");
+const clearButton = document.getElementById("ac-button");
 
 let displayValue = 0;
 let firstNumber;
 let operator;
 let secondNumber;
 
+clearButton.addEventListener("click", function () {
+displayValue = 0;
+calculatorScreen.innerText = displayValue;
+})
+
 for (let i = 0; i < operatorButtons.length; i++) {
+  
   const operatorButton = operatorButtons[i];
   operatorButton.addEventListener("click", function () {
+    displayValue = "";
     const buttonOperator = operatorButton.textContent;
-    console.log(buttonOperator);
+    firstNumber = Number(displayValue); //  first number on screen when the number is entered
+    operator = buttonOperator; //  the + / * symbol
   });
 }
 
