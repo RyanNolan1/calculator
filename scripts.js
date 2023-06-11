@@ -34,6 +34,10 @@ equalsButton.addEventListener("click", function () {
   operate(operator, firstNumber, secondNumber);
 });
 
+clearButton.addEventListener('click', function () {
+  calculatorScreen.innerHTML = 0;
+})
+
 function operate(operator, firstNumber, secondNumber) {
   if (operator === "+") {
     calculatorScreen.innerText = add(firstNumber, secondNumber);
