@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Calculator Font";
+  src: url("./Calculator.ttf") format("truetype");
+}
+
 • {
   padding: 0;
   margin: 0;
@@ -22,21 +27,37 @@ body {
   align-items: center;
   flex-direction: column;
   gap: 2rem;
+  border-style: solid;
+  border-color: black;
 }
 
 #calculator-screen {
   background-color: rgb(75, 75, 75);
-  width: 20rem;
-  height: 8rem;
+  width: 18rem;
+  height: 4rem;
   border-radius: 10px;
   margin-top: 2rem;
+  border-style: solid;
+  border-color: black;
+  color: lime;
+  font-size: 4rem;
+  font-family: 'Calculator Font';
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem;
+  text-size-adjust: auto;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 #calculator-buttons {
   width: 20rem;
-  height: 20rem;
+  height: 24rem;
   display: flex;
   flex-direction: row;
+  margin-bottom:2rem;
 }
 
 #buttons-numbers {
@@ -56,28 +77,57 @@ body {
   font-size: 3rem;
 }
 
+.number-buttons:hover {
+  background-color: darkgray;
+}
+
 #buttons-operators {
-    width: 5rem;
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 2fr;
-    column-gap: 5px;
-    row-gap: 5px;
-    padding: 5px;
-    padding-left: 0;
+  width: 5rem;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 2fr;
+  column-gap: 5px;
+  row-gap: 5px;
+  padding: 5px;
 }
 
 .operator-buttons {
-    border-radius: 20px;
-    border-style: solid;
-    border-color: black;
-    border-width: 3px;
-    font-size: 3rem;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  font-size: 3rem;
+}
+
+.operator-buttons:hover {
+  background-color: darkgray;
 }
 
 #equals-button {
-    background-color: orange;
+  background-color: orange;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  font-size: 3rem;
+}
+
+#equals-button:hover {
+  background-color: rgb(255, 225, 0);
 }
 
 button {
-    filter: drop-shadow(3px 3px 4px #0f0f10);
+  filter: drop-shadow(2px 2px 1px #0f0f10);
+  cursor: pointer;
+}
+
+#ac-button {
+    background-color: red;
+    font-size: 2rem;
+    color: white;
+}
+
+#ac-button:hover {
+    background-color: rgb(255, 3, 95);
+    font-size: 2rem;
+    color: white;
 }
