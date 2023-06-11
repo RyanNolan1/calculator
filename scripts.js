@@ -3,6 +3,7 @@ const calculatorScreen = document.getElementById("calculator-screen");
 const operatorButtons = document.getElementsByClassName("operator-buttons");
 const clearButton = document.getElementById("ac-button");
 const equalsButton = document.getElementById("equals-button");
+const backButton = document.getElementById("back-button");
 
 let displayValue = "";
 let firstNumber = 0;
@@ -37,6 +38,10 @@ equalsButton.addEventListener("click", function () {
 clearButton.addEventListener('click', function () {
   calculatorScreen.innerHTML = 0;
 })
+
+backButton.addEventListener('click', function() {
+calculatorScreen.innerHTML = calculatorScreen.innerHTML.replace(/.$/,'');
+}) 
 
 function operate(operator, firstNumber, secondNumber) {
   if (operator === "+") {
