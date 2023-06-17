@@ -31,32 +31,21 @@ for (let i = 0; i < operatorButtons.length; i++) {
     calculationArray.push(firstNumber, operator);
 
     if (calculationArray.length > 2) {
-      console.log(calculationArray)
       firstNumber = calculationArray[0];
       operator = calculationArray[1];
       secondNumber = calculationArray[2];
       operate(operator, firstNumber, secondNumber);
-      calculationArray.splice(0,3)
-      calculationArray.unshift(calculatorScreen.innerText);
+      calculationArray.splice(0, 3);
+      calculationArray.unshift(Number(calculatorScreen.innerText));
       console.log(calculationArray);
     }
-    // operator=
-    // if (calculationArray.length === 4) {
-    // let calculationString = calculationArray.join(" ");
-    // firstNumber = calculationString.slice(0, 1);
-    // operator = calculationString.slice(2, 3);
-    // secondNumber = calculationString.slice(4, 5);
-    // operate(operator, firstNumber, secondNumber);
-    // let secondOperator = calculationArray.splice(3, 1)[0];
-    // let calculatedNumber = calculatorScreen.innerText;
-    // console.log(calculationArray.splice(3,1)[0])
-    // console.log(calculatedNumber)
-    // console.log(secondOperator);
   });
 }
 
 equalsButton.addEventListener("click", function () {
+  firstNumber = Number(calculationArray[0])
   secondNumber = Number(displayValue);
+  operator = (calculationArray[1])
   displayValue = "";
   operate(operator, firstNumber, secondNumber);
 });
