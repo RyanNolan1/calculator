@@ -9,6 +9,7 @@ let displayValue = "";
 let firstNumber = 0;
 let operator = "";
 let secondNumber = 0;
+let calculationArray = [];
 
 for (let i = 0; i < numberButtons.length; i++) {
   const numberButton = numberButtons[i];
@@ -24,8 +25,33 @@ for (let i = 0; i < operatorButtons.length; i++) {
   operatorButton.addEventListener("click", function () {
     const buttonOperator = operatorButton.textContent;
     firstNumber = Number(calculatorScreen.innerText);
-    operator = buttonOperator; 
+    operator = buttonOperator;
     displayValue = "";
+
+    calculationArray.push(firstNumber, operator);
+
+    if (calculationArray.length > 2) {
+      console.log(calculationArray)
+      firstNumber = calculationArray[0];
+      operator = calculationArray[1];
+      secondNumber = calculationArray[2];
+      operate(operator, firstNumber, secondNumber);
+      calculationArray.splice(0,3)
+      calculationArray.unshift(calculatorScreen.innerText);
+      console.log(calculationArray);
+    }
+    // operator=
+    // if (calculationArray.length === 4) {
+    // let calculationString = calculationArray.join(" ");
+    // firstNumber = calculationString.slice(0, 1);
+    // operator = calculationString.slice(2, 3);
+    // secondNumber = calculationString.slice(4, 5);
+    // operate(operator, firstNumber, secondNumber);
+    // let secondOperator = calculationArray.splice(3, 1)[0];
+    // let calculatedNumber = calculatorScreen.innerText;
+    // console.log(calculationArray.splice(3,1)[0])
+    // console.log(calculatedNumber)
+    // console.log(secondOperator);
   });
 }
 
@@ -35,13 +61,13 @@ equalsButton.addEventListener("click", function () {
   operate(operator, firstNumber, secondNumber);
 });
 
-clearButton.addEventListener('click', function () {
+clearButton.addEventListener("click", function () {
   calculatorScreen.innerHTML = 0;
-})
+});
 
-backButton.addEventListener('click', function() {
-calculatorScreen.innerHTML = calculatorScreen.innerHTML.replace(/.$/,'');
-}) 
+backButton.addEventListener("click", function () {
+  calculatorScreen.innerHTML = calculatorScreen.innerHTML.replace(/.$/, "");
+});
 
 function operate(operator, firstNumber, secondNumber) {
   if (operator === "+") {
