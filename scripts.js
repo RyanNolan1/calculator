@@ -49,6 +49,7 @@ equalsButton.addEventListener("click", function () {
 });
 
 clearButton.addEventListener("click", function () {
+  calculationArray = [];
   calculatorScreen.innerHTML = 0;
 });
 
