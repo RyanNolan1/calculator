@@ -27,27 +27,25 @@ for (let i = 0; i < operatorButtons.length; i++) {
     firstNumber = Number(calculatorScreen.innerText);
     operator = buttonOperator;
     displayValue = "";
-
     calculationArray.push(firstNumber, operator);
 
     if (calculationArray.length > 2) {
       firstNumber = calculationArray[0];
       operator = calculationArray[1];
       secondNumber = calculationArray[2];
-      operate(operator, firstNumber, secondNumber);
+      calculatorScreen.innerText = operate(operator, firstNumber, secondNumber);
       calculationArray.splice(0, 3);
       calculationArray.unshift(Number(calculatorScreen.innerText));
-      console.log(calculationArray);
     }
   });
 }
 
 equalsButton.addEventListener("click", function () {
-  firstNumber = Number(calculationArray[0])
+  firstNumber = Number(calculationArray[0]);
   secondNumber = Number(displayValue);
-  operator = (calculationArray[1])
   displayValue = "";
-  operate(operator, firstNumber, secondNumber);
+  calculatorScreen.innerText = operate(operator, firstNumber, secondNumber);
+  calculationArray = [];
 });
 
 clearButton.addEventListener("click", function () {
@@ -60,13 +58,13 @@ backButton.addEventListener("click", function () {
 
 function operate(operator, firstNumber, secondNumber) {
   if (operator === "+") {
-    calculatorScreen.innerText = add(firstNumber, secondNumber);
+    return add(firstNumber, secondNumber);
   } else if (operator === "-") {
-    calculatorScreen.innerText = subtract(firstNumber, secondNumber);
+    return subtract(firstNumber, secondNumber);
   } else if (operator === "x") {
-    calculatorScreen.innerText = multiply(firstNumber, secondNumber);
+    return multiply(firstNumber, secondNumber);
   } else if (operator === "÷") {
-    calculatorScreen.innerText = divide(firstNumber, secondNumber);
+    return divide(firstNumber, secondNumber);
   }
 }
 
