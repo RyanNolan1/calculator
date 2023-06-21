@@ -58,15 +58,10 @@ backButton.addEventListener("click", function () {
 });
 
 function operate(operator, firstNumber, secondNumber) {
-  if (operator === "+") {
-    return add(firstNumber, secondNumber);
-  } else if (operator === "-") {
-    return subtract(firstNumber, secondNumber);
-  } else if (operator === "x") {
-    return multiply(firstNumber, secondNumber);
-  } else if (operator === "÷") {
-    return divide(firstNumber, secondNumber);
-  }
+  if (operator === "+") return add(firstNumber, secondNumber);
+  if (operator === "-") return subtract(firstNumber, secondNumber);
+  if (operator === "x") return multiply(firstNumber, secondNumber);
+  if (operator === "÷") return divide(firstNumber, secondNumber);
 }
 
 function add(a, b) {
