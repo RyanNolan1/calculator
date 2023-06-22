@@ -24,9 +24,10 @@ for (let i = 0; i < operatorButtons.length; i++) {
   const operatorButton = operatorButtons[i];
   operatorButton.addEventListener("click", function () {
     const buttonOperator = operatorButton.textContent;
+    if (buttonOperator !== "AC" && buttonOperator !== "←") {
     calculationArray.push(inputtedValue, buttonOperator);
     inputtedValue = "";
-
+    }
     if (calculationArray.length === 4 ) {
       console.log(calculationArray)
       firstNumber = calculationArray[0];
@@ -38,19 +39,6 @@ for (let i = 0; i < operatorButtons.length; i++) {
     }
   })
 }
-
-
-
-  
-  
-  // for (let i = 0; i < operatorButtons.length; i++) {
-    //   const operatorButton = operatorButtons[i];
-    //   operatorButton.addEventListener("click", function () {
-//     const buttonOperator = operatorButton.textContent;
-//     firstNumber = Number(calculatorScreen.innerText);
-//     operator = buttonOperator;
-//     displayValue = "";
-//     calculationArray.push(firstNumber, operator);
 
 equalsButton.addEventListener("click", function () {
   firstNumber = calculationArray[0];
@@ -64,9 +52,12 @@ equalsButton.addEventListener("click", function () {
 //   calculatorScreen.innerHTML = 0;
 // });
 
-// backButton.addEventListener("click", function () {
-//   calculatorScreen.innerHTML = calculatorScreen.innerHTML.replace(/.$/, "");
-// });
+backButton.addEventListener("click", function () {
+  let numberRemoved = inputtedValue.replace(/.$/, "");
+  console.log(numberRemoved)
+  inputtedValue = numberRemoved;
+  calculatorScreen.innerHTML = numberRemoved;
+});
 
 function operate(operator, firstNumber, secondNumber) {
   if (operator === "+") return add(Number(firstNumber), Number(secondNumber));
