@@ -25,11 +25,10 @@ for (let i = 0; i < operatorButtons.length; i++) {
   operatorButton.addEventListener("click", function () {
     const buttonOperator = operatorButton.textContent;
     if (buttonOperator !== "AC" && buttonOperator !== "←") {
-    calculationArray.push(inputtedValue, buttonOperator);
-    inputtedValue = "";
+      calculationArray.push(inputtedValue, buttonOperator);
+      inputtedValue = "";
     }
-    if (calculationArray.length === 4 ) {
-      console.log(calculationArray)
+    if (calculationArray.length === 4) {
       firstNumber = calculationArray[0];
       operator = calculationArray[1];
       secondNumber = calculationArray[2];
@@ -37,33 +36,36 @@ for (let i = 0; i < operatorButtons.length; i++) {
       calculationArray.splice(0, 3);
       calculationArray.unshift(calculatorScreen.innerText);
     }
-  })
+  });
 }
 
 equalsButton.addEventListener("click", function () {
   firstNumber = calculationArray[0];
-  operator = calculationArray[1]
+  operator = calculationArray[1];
   secondNumber = inputtedValue;
   calculatorScreen.innerText = operate(operator, firstNumber, secondNumber);
 });
 
-// clearButton.addEventListener("click", function () {
-//   calculationArray = [];
-//   calculatorScreen.innerHTML = 0;
-// });
+clearButton.addEventListener("click", function () {
+  calculationArray = [];
+  calculatorScreen.innerHTML = 0;
+  inputtedValue = "";
+});
 
 backButton.addEventListener("click", function () {
   let numberRemoved = inputtedValue.replace(/.$/, "");
-  console.log(numberRemoved)
   inputtedValue = numberRemoved;
   calculatorScreen.innerHTML = numberRemoved;
 });
 
 function operate(operator, firstNumber, secondNumber) {
   if (operator === "+") return add(Number(firstNumber), Number(secondNumber));
-  if (operator === "-") return subtract(Number(firstNumber), Number(secondNumber));
-  if (operator === "x") return multiply(Number(firstNumber), Number(secondNumber));
-  if (operator === "÷") return divide(Number(firstNumber), Number(secondNumber));
+  if (operator === "-")
+    return subtract(Number(firstNumber), Number(secondNumber));
+  if (operator === "x")
+    return multiply(Number(firstNumber), Number(secondNumber));
+  if (operator === "÷")
+    return divide(Number(firstNumber), Number(secondNumber));
 }
 
 function add(a, b) {
@@ -81,4 +83,3 @@ function multiply(a, b) {
 function divide(a, b) {
   return a / b;
 }
-
