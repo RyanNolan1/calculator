@@ -16,6 +16,9 @@ for (let i = 0; i < numberButtons.length; i++) {
   numberButton.addEventListener("click", function () {
     const buttonValue = numberButton.textContent;
     inputtedValue += buttonValue;
+
+    let inputtedValueArray = [...inputtedValue];
+    removeDecimalDuplicates(inputtedValueArray);
     calculatorScreen.innerText = inputtedValue;
   });
 }
@@ -82,4 +85,15 @@ function multiply(a, b) {
 
 function divide(a, b) {
   return a / b;
+}
+
+function removeDecimalDuplicates(arr) {
+  let removedDecimalDuplicates = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === "." && removedDecimalDuplicates.includes(".")) {
+    } else {
+      removedDecimalDuplicates.push(arr[i]);
+    }
+  }
+  inputtedValue = removedDecimalDuplicates.join("");
 }
