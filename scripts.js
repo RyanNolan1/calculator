@@ -16,7 +16,24 @@ for (let i = 0; i < numberButtons.length; i++) {
   numberButton.addEventListener("click", function () {
     const buttonValue = numberButton.textContent;
     inputtedValue += buttonValue;
-    calculatorScreen.innerText = inputtedValue;
+
+    let inputtedValueArray = [...inputtedValue];
+
+    let removedDecimalDuplicates = [];
+
+    for (let i = 0; i < inputtedValueArray.length; i++) {
+      if (
+        inputtedValueArray[i] === "." &&
+        removedDecimalDuplicates.includes(".")
+      ) {
+      } else {
+        removedDecimalDuplicates.push(inputtedValueArray[i]);
+      }
+    }
+
+    inputtedValue = removedDecimalDuplicates.join('');
+
+    calculatorScreen.innerText =  inputtedValue;
   });
 }
 
