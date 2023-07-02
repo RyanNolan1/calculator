@@ -18,22 +18,8 @@ for (let i = 0; i < numberButtons.length; i++) {
     inputtedValue += buttonValue;
 
     let inputtedValueArray = [...inputtedValue];
-
-    let removedDecimalDuplicates = [];
-
-    for (let i = 0; i < inputtedValueArray.length; i++) {
-      if (
-        inputtedValueArray[i] === "." &&
-        removedDecimalDuplicates.includes(".")
-      ) {
-      } else {
-        removedDecimalDuplicates.push(inputtedValueArray[i]);
-      }
-    }
-
-    inputtedValue = removedDecimalDuplicates.join('');
-
-    calculatorScreen.innerText =  inputtedValue;
+    removeDecimalDuplicates(inputtedValueArray);
+    calculatorScreen.innerText = inputtedValue;
   });
 }
 
@@ -99,4 +85,15 @@ function multiply(a, b) {
 
 function divide(a, b) {
   return a / b;
+}
+
+function removeDecimalDuplicates(arr) {
+  let removedDecimalDuplicates = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === "." && removedDecimalDuplicates.includes(".")) {
+    } else {
+      removedDecimalDuplicates.push(arr[i]);
+    }
+  }
+  inputtedValue = removedDecimalDuplicates.join("");
 }
