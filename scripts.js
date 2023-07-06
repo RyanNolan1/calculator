@@ -46,13 +46,21 @@ equalsButton.addEventListener("click", function () {
   firstNumber = calculationArray[0];
   operator = calculationArray[1];
   secondNumber = inputtedValue;
+  if (operator === "÷" && secondNumber === "0") {
+    calculatorScreen.innerText = "CAN'T DIVIDE BY 0!!";
+    calculatorScreen.style.fontSize = "2.6rem";
+    calculatorScreen.style.color = "red";
+  } else {
   calculatorScreen.innerText = operate(operator, firstNumber, secondNumber);
+  }
 });
 
 clearButton.addEventListener("click", function () {
   calculationArray = [];
   calculatorScreen.innerHTML = 0;
   inputtedValue = "";
+  calculatorScreen.style.fontSize = "4rem";
+  calculatorScreen.style.color = "lime";
 });
 
 backButton.addEventListener("click", function () {
