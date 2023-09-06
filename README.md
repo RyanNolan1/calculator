@@ -32,6 +32,7 @@ Decimal input support
 Clone this repository to your local machine using Git:
 
 1. Clone the repository:
+   <br>
    <br>git clone https://github.com/RyanNolan1/calculator.git
 
 2. Open index.html in your web browser to interact with the calculator.
