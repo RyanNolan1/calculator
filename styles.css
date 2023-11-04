@@ -12,8 +12,8 @@
 
 body {
     background-color: rgb(182, 241, 218);
-    /* width: 100vw; */
-    height: 100vh;
+    height: 100svh;
+    overflow:hidden;
     display: flex;
     justify-content: center;
     align-items: center;
