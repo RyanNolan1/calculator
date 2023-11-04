@@ -6,16 +6,18 @@
 • {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
+
 body {
-  background-color: rgb(182, 241, 218);
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    background-color: rgb(182, 241, 218);
+    /* width: 100vw; */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 #calculator-container {
@@ -63,7 +65,7 @@ body {
 #buttons-numbers {
   width: 14rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 32% 32% 32%;
   column-gap: 5px;
   row-gap: 5px;
   padding: 5px;
@@ -74,7 +76,6 @@ body {
   border-style: solid;
   border-color: black;
   border-width: 3px;
-  font-size: 3rem;
 }
 
 .number-buttons:hover {
@@ -95,7 +96,6 @@ body {
   border-style: solid;
   border-color: black;
   border-width: 3px;
-  font-size: 3rem;
 }
 
 .operator-buttons:hover {
@@ -108,7 +108,6 @@ body {
   border-style: solid;
   border-color: black;
   border-width: 3px;
-  font-size: 3rem;
 }
 
 #equals-button:hover {
@@ -116,18 +115,22 @@ body {
 }
 
 button {
-  filter: drop-shadow(2px 2px 1px #0f0f10);
-  cursor: pointer;
+    filter: drop-shadow(2px 2px 1px #0f0f10);
+    cursor: pointer;
+    font-size: 32px;
+    text-align: center;
+    color: black;
+    padding: 0px;
+
 }
 
 #ac-button {
     background-color: red;
-    font-size: 2rem;
     color: white;
+    text-align: center;
 }
 
 #ac-button:hover {
     background-color: rgb(255, 3, 95);
-    font-size: 2rem;
     color: white;
 }
