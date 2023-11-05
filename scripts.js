@@ -10,10 +10,12 @@ let calculationArray = [];
 let firstNumber = 0;
 let operator = "";
 let secondNumber = 0;
+let repeatEquals = false;
 
 for (let i = 0; i < numberButtons.length; i++) {
   const numberButton = numberButtons[i];
   numberButton.addEventListener("click", function () {
+    repeatEquals = false;
     const buttonValue = numberButton.textContent;
     inputtedValue += buttonValue;
 
@@ -26,6 +28,7 @@ for (let i = 0; i < numberButtons.length; i++) {
 for (let i = 0; i < operatorButtons.length; i++) {
   const operatorButton = operatorButtons[i];
   operatorButton.addEventListener("click", function () {
+    repeatEquals = false;
     const buttonOperator = operatorButton.textContent;
     if (buttonOperator !== "AC" && buttonOperator !== "←") {
       calculationArray.push(inputtedValue, buttonOperator);
@@ -50,12 +53,21 @@ equalsButton.addEventListener("click", function () {
     calculatorScreen.innerText = "CAN'T DIVIDE BY 0!!";
     calculatorScreen.style.fontSize = "2.6rem";
     calculatorScreen.style.color = "red";
-  } else {
-  calculatorScreen.innerText = operate(operator, firstNumber, secondNumber);
+  } else if (repeatEquals === false) {
+    calculatorScreen.innerText = operate(operator, firstNumber, secondNumber);
+    repeatEquals = true;
+  } else if (repeatEquals === true) {
+    let calculatedNumber = calculatorScreen.innerText;
+    calculatorScreen.innerText = operate(
+      operator,
+      calculatedNumber,
+      secondNumber
+    );
   }
 });
 
 clearButton.addEventListener("click", function () {
+  repeatEquals = false;
   calculationArray = [];
   calculatorScreen.innerHTML = 0;
   inputtedValue = "";
