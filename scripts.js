@@ -57,12 +57,9 @@ equalsButton.addEventListener("click", function () {
     calculatorScreen.innerText = operate(operator, firstNumber, secondNumber);
     repeatEquals = true;
   } else if (repeatEquals === true) {
-    let calculatedNumber = calculatorScreen.innerText;
-    calculatorScreen.innerText = operate(
-      operator,
-      calculatedNumber,
-      secondNumber
-    );
+    firstNumber = calculatorScreen.innerText;
+    calculatorScreen.innerText = operate(operator, firstNumber, secondNumber);
+    calculationArray[0] = firstNumber;
   }
 });
 
