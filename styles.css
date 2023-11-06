@@ -36,8 +36,8 @@ body {
 
 #calculator-screen {
   background-color: rgb(75, 75, 75);
-  width: 18rem;
-  height: 4rem;
+  width: 20rem;
+  height: 6rem;
   border-radius: 10px;
   margin-top: 2rem;
   border-style: solid;
@@ -47,16 +47,15 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 1rem;
-  text-size-adjust: auto;
+  /* text-size-adjust: auto; */
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
 #screen-numbers-container {
-font-size:4rem;
-background-color: blue;
+padding-left:1rem;
+padding-right:1rem;
 width:fit-content;
 max-width: 18rem;
 }
