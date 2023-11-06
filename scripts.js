@@ -4,7 +4,9 @@ const operatorButtons = document.querySelectorAll(".operator-buttons");
 const clearButton = document.getElementById("ac-button");
 const equalsButton = document.getElementById("equals-button");
 const backButton = document.getElementById("back-button");
+const screenNumbersContainer = document.getElementById("screen-numbers-container")
 
+screenNumbersContainer.style.fontSize = "4rem";
 let inputtedValue = "";
 let calculationArray = [];
 let firstNumber = 0;
@@ -21,7 +23,13 @@ for (let i = 0; i < numberButtons.length; i++) {
 
     let inputtedValueArray = [...inputtedValue];
     removeDecimalDuplicates(inputtedValueArray);
-    calculatorScreen.innerText = inputtedValue;
+    screenNumbersContainer.innerText = inputtedValue;
+
+    if (screenNumbersContainer.clientWidth > 260) {
+     let newFontSize = parseInt(screenNumbersContainer.style.fontSize) - ( 1 );
+     console.log(screenNumbersContainer.style.fontSize = `${newFontSize}rem`)
+    }
+
   });
 }
 
@@ -50,15 +58,15 @@ equalsButton.addEventListener("click", function () {
   operator = calculationArray[1];
   secondNumber = inputtedValue;
   if (operator === "÷" && secondNumber === "0") {
-    calculatorScreen.innerText = "CAN'T DIVIDE BY 0!!";
-    calculatorScreen.style.fontSize = "2.6rem";
-    calculatorScreen.style.color = "red";
+    screenNumbersContainer.innerText = "CAN'T DIVIDE BY 0!!";
+    screenNumbersContainer.style.fontSize = "2.6rem";
+    screenNumbersContainer.style.color = "red";
   } else if (repeatEquals === false) {
-    calculatorScreen.innerText = operate(operator, firstNumber, secondNumber);
+    screenNumbersContainer.innerText = operate(operator, firstNumber, secondNumber);
     repeatEquals = true;
   } else if (repeatEquals === true) {
     firstNumber = calculatorScreen.innerText;
-    calculatorScreen.innerText = operate(operator, firstNumber, secondNumber);
+    screenNumbersContainer.innerText = operate(operator, firstNumber, secondNumber);
     calculationArray[0] = firstNumber;
   }
 });
@@ -66,16 +74,16 @@ equalsButton.addEventListener("click", function () {
 clearButton.addEventListener("click", function () {
   repeatEquals = false;
   calculationArray = [];
-  calculatorScreen.innerHTML = 0;
+  screenNumbersContainer.innerHTML = 0;
   inputtedValue = "";
-  calculatorScreen.style.fontSize = "4rem";
-  calculatorScreen.style.color = "lime";
+  screenNumbersContainer.style.fontSize = "4rem";
+  screenNumbersContainer.style.color = "lime";
 });
 
 backButton.addEventListener("click", function () {
   let numberRemoved = inputtedValue.replace(/.$/, "");
   inputtedValue = numberRemoved;
-  calculatorScreen.innerHTML = numberRemoved;
+  screenNumbersContainer.innerHTML = numberRemoved;
 });
 
 function operate(operator, firstNumber, secondNumber) {
@@ -114,3 +122,5 @@ function removeDecimalDuplicates(arr) {
   }
   inputtedValue = removedDecimalDuplicates.join("");
 }
+
+

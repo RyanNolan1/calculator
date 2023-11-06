@@ -43,7 +43,6 @@ body {
   border-style: solid;
   border-color: black;
   color: lime;
-  font-size: 4rem;
   font-family: 'Calculator Font';
   display: flex;
   justify-content: flex-end;
@@ -53,6 +52,13 @@ body {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+#screen-numbers-container {
+font-size:4rem;
+background-color: blue;
+width:fit-content;
+max-width: 18rem;
 }
 
 #calculator-buttons {
