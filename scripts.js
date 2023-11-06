@@ -1,16 +1,28 @@
 const numberButtons = document.querySelectorAll(".number-buttons");
-const calculatorScreen = document.getElementById("calculator-screen");
+// const calculatorScreen = document.getElementById("calculator-screen");
 const operatorButtons = document.querySelectorAll(".operator-buttons");
 const clearButton = document.getElementById("ac-button");
 const equalsButton = document.getElementById("equals-button");
 const backButton = document.getElementById("back-button");
+const screenNumbersContainer = document.getElementById(
+  "screen-numbers-container"
+);
 
+screenNumbersContainer.style.fontSize = "82px";
 let inputtedValue = "";
 let calculationArray = [];
 let firstNumber = 0;
 let operator = "";
 let secondNumber = 0;
 let repeatEquals = false;
+
+
+function fontResizer() {
+  if (screenNumbersContainer.clientWidth > 300) {
+    let newFontSize = parseInt(screenNumbersContainer.style.fontSize) - 4;
+    screenNumbersContainer.style.fontSize = `${newFontSize}px`;
+  }
+}
 
 for (let i = 0; i < numberButtons.length; i++) {
   const numberButton = numberButtons[i];
@@ -21,7 +33,8 @@ for (let i = 0; i < numberButtons.length; i++) {
 
     let inputtedValueArray = [...inputtedValue];
     removeDecimalDuplicates(inputtedValueArray);
-    calculatorScreen.innerText = inputtedValue;
+    screenNumbersContainer.innerText = inputtedValue;
+    fontResizer();
   });
 }
 
@@ -38,11 +51,12 @@ for (let i = 0; i < operatorButtons.length; i++) {
       firstNumber = calculationArray[0];
       operator = calculationArray[1];
       secondNumber = calculationArray[2];
-      calculatorScreen.innerText = operate(operator, firstNumber, secondNumber);
+      screenNumbersContainer.innerText = operate(operator, firstNumber, secondNumber);
       calculationArray.splice(0, 3);
-      calculationArray.unshift(calculatorScreen.innerText);
+      calculationArray.unshift(screenNumbersContainer.innerText);
     }
   });
+  fontResizer();
 }
 
 equalsButton.addEventListener("click", function () {
@@ -50,32 +64,41 @@ equalsButton.addEventListener("click", function () {
   operator = calculationArray[1];
   secondNumber = inputtedValue;
   if (operator === "÷" && secondNumber === "0") {
-    calculatorScreen.innerText = "CAN'T DIVIDE BY 0!!";
-    calculatorScreen.style.fontSize = "2.6rem";
-    calculatorScreen.style.color = "red";
+    screenNumbersContainer.innerText = "CAN'T DIVIDE BY 0!!";
+    screenNumbersContainer.style.fontSize = "2.6rem";
+    screenNumbersContainer.style.color = "red";
   } else if (repeatEquals === false) {
-    calculatorScreen.innerText = operate(operator, firstNumber, secondNumber);
+    screenNumbersContainer.innerText = operate(
+      operator,
+      firstNumber,
+      secondNumber
+    );
     repeatEquals = true;
   } else if (repeatEquals === true) {
-    firstNumber = calculatorScreen.innerText;
-    calculatorScreen.innerText = operate(operator, firstNumber, secondNumber);
+    firstNumber = screenNumbersContainer.innerText;
+    screenNumbersContainer.innerText = operate(
+      operator,
+      firstNumber,
+      secondNumber
+    );
     calculationArray[0] = firstNumber;
   }
+  fontResizer();
 });
 
 clearButton.addEventListener("click", function () {
+  screenNumbersContainer.style.fontSize = "82px";
   repeatEquals = false;
   calculationArray = [];
-  calculatorScreen.innerHTML = 0;
+  screenNumbersContainer.innerHTML = 0;
   inputtedValue = "";
-  calculatorScreen.style.fontSize = "4rem";
-  calculatorScreen.style.color = "lime";
+  screenNumbersContainer.style.color = "lime";
 });
 
 backButton.addEventListener("click", function () {
   let numberRemoved = inputtedValue.replace(/.$/, "");
   inputtedValue = numberRemoved;
-  calculatorScreen.innerHTML = numberRemoved;
+  screenNumbersContainer.innerHTML = numberRemoved;
 });
 
 function operate(operator, firstNumber, secondNumber) {
@@ -114,3 +137,4 @@ function removeDecimalDuplicates(arr) {
   }
   inputtedValue = removedDecimalDuplicates.join("");
 }
+

@@ -9,16 +9,14 @@
   box-sizing: content-box;
 }
 
-
 body {
-    background-color: rgb(182, 241, 218);
-    height: 100svh;
-    overflow:hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    touch-action: manipulation;
-
+  background-color: rgb(182, 241, 218);
+  height: 100svh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  touch-action: manipulation;
 }
 
 #calculator-container {
@@ -36,23 +34,27 @@ body {
 
 #calculator-screen {
   background-color: rgb(75, 75, 75);
-  width: 18rem;
-  height: 4rem;
+  width: 20rem;
+  height: 6rem;
   border-radius: 10px;
   margin-top: 2rem;
   border-style: solid;
   border-color: black;
   color: lime;
-  font-size: 4rem;
-  font-family: 'Calculator Font';
+  font-family: "Calculator Font";
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 1rem;
-  text-size-adjust: auto;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+#screen-numbers-container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: fit-content;
+  max-width: 18rem;
 }
 
 #calculator-buttons {
@@ -60,7 +62,7 @@ body {
   height: 24rem;
   display: flex;
   flex-direction: row;
-  margin-bottom:2rem;
+  margin-bottom: 2rem;
 }
 
 #buttons-numbers {
@@ -116,22 +118,21 @@ body {
 }
 
 button {
-    filter: drop-shadow(2px 2px 1px #0f0f10);
-    cursor: pointer;
-    font-size: 32px;
-    text-align: center;
-    color: black;
-    padding: 0px;
-
+  filter: drop-shadow(2px 2px 1px #0f0f10);
+  cursor: pointer;
+  font-size: 32px;
+  text-align: center;
+  color: black;
+  padding: 0px;
 }
 
 #ac-button {
-    background-color: red;
-    color: white;
-    text-align: center;
+  background-color: red;
+  color: white;
+  text-align: center;
 }
 
 #ac-button:hover {
-    background-color: rgb(255, 3, 95);
-    color: white;
+  background-color: rgb(255, 3, 95);
+  color: white;
 }
